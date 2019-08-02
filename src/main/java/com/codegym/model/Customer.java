@@ -4,7 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "customers")
+@NamedQuery(
+        name="findAllCustomersWithName",
+        query="SELECT c FROM Customer c WHERE c.lastName LIKE ?1"
+)
 public class Customer {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
