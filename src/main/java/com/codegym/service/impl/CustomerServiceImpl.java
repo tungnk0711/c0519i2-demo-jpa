@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
 
     @Override
-    public List<Customer> findAll() {
+    public Iterable<Customer> findAll() {
+
         return customerRepository.findAll();
     }
 
@@ -23,7 +25,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> findByName(String name) {
+    public Iterable<Customer> findByName(String name) {
         return customerRepository.findByName(name);
+    }
+
+    @Override
+    public void deleteCustomerById(Long id) {
+        customerRepository.deleteCustomerById(id);
     }
 }

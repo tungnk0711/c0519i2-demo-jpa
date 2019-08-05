@@ -1,7 +1,6 @@
 package com.codegym;
 
 import com.codegym.repository.CustomerRepository;
-import com.codegym.repository.impl.CustomerRepositoryImpl;
 import com.codegym.service.CustomerService;
 import com.codegym.service.impl.CustomerServiceImpl;
 import org.springframework.beans.BeansException;
@@ -42,6 +41,7 @@ import java.util.Properties;
 @EnableSpringDataWebSupport
 @ComponentScan("com.codegym")
 @PropertySource("classpath:global_config_app.properties")
+@EnableJpaRepositories("com.codegym.repository")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     @Autowired
@@ -64,11 +64,6 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-    }
-
-    @Bean
-    public CustomerRepository customerRepository(){
-        return  new CustomerRepositoryImpl();
     }
 
     @Bean

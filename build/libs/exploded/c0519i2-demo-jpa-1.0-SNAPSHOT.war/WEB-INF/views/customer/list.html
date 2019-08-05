@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
 <form th:action="@{/search}" method="get">
     <input type="text" id="name" name="name">
     <input type="submit" value="Search">
@@ -16,6 +17,8 @@
         <p th:text="${customer.id}"></p>
         <p th:text="${customer.firstName}"></p>
         <p th:text="${customer.lastName}"></p>
+        <p><a th:href="@{/delete-customer/__${customer.id}__}">Delete</a></p>
+
     </div>
 </div>
 

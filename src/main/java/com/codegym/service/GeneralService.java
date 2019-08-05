@@ -4,9 +4,11 @@ import java.util.List;
 
 public interface GeneralService<T> {
 
-    List<T> findAll();
+    Iterable<T> findAll();
 
     void save(T t);
 
-    List<T> findByName(String name);
+    Iterable<T> findByName(String name);
+
+    void deleteCustomerById(Long id);
 }
