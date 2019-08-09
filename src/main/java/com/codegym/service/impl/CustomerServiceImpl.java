@@ -5,8 +5,6 @@ import com.codegym.repository.CustomerRepository;
 import com.codegym.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 
 public class CustomerServiceImpl implements CustomerService {
 
@@ -30,7 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomerById(Long id) {
-        customerRepository.deleteCustomerById(id);
+    public void deleteById(Long id) {
+        customerRepository.delete(id);
+    }
+
+    @Override
+    public Customer findById(Long id) {
+        return customerRepository.findOne(id);
     }
 }

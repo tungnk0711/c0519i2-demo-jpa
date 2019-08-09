@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form th:action="@{/search-province}" method="get">
+    <input type="text" id="name" name="name">
+    <input type="submit" value="Search">
+</form>
+
+<div th:each="province,iterStat : ${provinces}" th:class="${iterStat.odd}? 'odd'">
+    <div class="province-item">
+        <p th:text="${province.id}"></p>
+        <p th:text="${province.name}"></p>
+        <p><a th:href="@{/delete-province/__${province.id}__}">Delete</a></p>
+
+    </div>
+</div>
+
+</body>
+</html>

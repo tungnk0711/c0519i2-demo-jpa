@@ -6,17 +6,26 @@
 </head>
 <body>
 
-<p style="color: red;" th:if="${message}" th:text="${message}"></p>
-
 <form th:action="@{/save-customer}" th:object="${customer}" method="post">
     <table>
         <tr>
+            <td>Province:</td>
+            <td>
+                <select th:field="*{province}">
+                    <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+            <td th:if="${#fields.hasErrors('province')}" th:errors="*{province}">Name Error</td>
+        </tr>
+        <tr>
             <td>First Name:</td>
             <td><input type="text" th:field="*{firstName}"/></td>
+            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</td>
         </tr>
         <tr>
             <td>Last Name:</td>
             <td><input type="text" th:field="*{lastName}"/></td>
+            <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td>
         </tr>
         <tr>
             <td></td>

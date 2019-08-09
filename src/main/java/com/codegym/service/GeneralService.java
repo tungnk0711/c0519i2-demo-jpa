@@ -1,7 +1,5 @@
 package com.codegym.service;
 
-import java.util.List;
-
 public interface GeneralService<T> {
 
     Iterable<T> findAll();
@@ -10,5 +8,7 @@ public interface GeneralService<T> {
 
     Iterable<T> findByName(String name);
 
-    void deleteCustomerById(Long id);
+    void deleteById(Long id);
+
+    T findById(Long id);
 }

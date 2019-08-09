@@ -10,8 +10,5 @@ public interface CustomerRepository extends PagingAndSortingRepository<Customer,
     @Query("SELECT c FROM Customer c WHERE c.lastName LIKE :name")
     Iterable<Customer> findByName(@Param("name") String name);
 
-    @Query("delete from Customer c where c.id =:#{#id}")
-    void deleteCustomerById(@Param("id") Long id);
-
 
 }

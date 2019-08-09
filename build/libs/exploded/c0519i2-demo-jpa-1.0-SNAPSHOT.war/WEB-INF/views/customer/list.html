@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<h1 th:text="${'View count: ' + #httpSession.getAttribute('mycounter').getCount()}"></h1>
+
 
 <form th:action="@{/search}" method="get">
     <input type="text" id="name" name="name">
@@ -17,6 +19,7 @@
         <p th:text="${customer.id}"></p>
         <p th:text="${customer.firstName}"></p>
         <p th:text="${customer.lastName}"></p>
+        <td th:text="${customer.province.name}"></td>
         <p><a th:href="@{/delete-customer/__${customer.id}__}">Delete</a></p>
 
     </div>
